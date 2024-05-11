@@ -22,6 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{42D062
 		images\drone.svg = images\drone.svg
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{080DA6A5-2472-41E1-97C2-AF26518A3581}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simulator", "Simulator", "{A7C0E612-15A7-4B24-9C4C-E8983E8F215B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO.Simulator", "Tello.IO.Simulator\Tello.IO.Simulator.csproj", "{7B932322-B580-4BB3-86E5-E5F7CB33A319}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO.Simulator.Tests", "Tello.IO.Simulator.Tests\Tello.IO.Simulator.Tests.csproj", "{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,12 +44,22 @@ Global
 		{99F77D07-A071-4DE7-B770-5739817A16C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F77D07-A071-4DE7-B770-5739817A16C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F77D07-A071-4DE7-B770-5739817A16C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B932322-B580-4BB3-86E5-E5F7CB33A319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B932322-B580-4BB3-86E5-E5F7CB33A319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B932322-B580-4BB3-86E5-E5F7CB33A319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B932322-B580-4BB3-86E5-E5F7CB33A319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{42D062B3-FC82-44ED-8BB8-5CF98ADFA538} = {BF9336E5-AD2B-4E31-B0B1-EB9BD6DA707A}
+		{7B932322-B580-4BB3-86E5-E5F7CB33A319} = {A7C0E612-15A7-4B24-9C4C-E8983E8F215B}
+		{DA42A1E2-FD71-45C4-8B8D-CFFDDA110DA1} = {A7C0E612-15A7-4B24-9C4C-E8983E8F215B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95BE703C-BFD1-499B-A686-A5C607A82E8A}
