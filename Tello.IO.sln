@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO", "Tello.IO\Tello.IO.csproj", "{7995629D-29C3-4C58-86E3-AD1CFD826EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO.Tests", "Tello.IO.Tests\Tello.IO.Tests.csproj", "{99F77D07-A071-4DE7-B770-5739817A16C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7995629D-29C3-4C58-86E3-AD1CFD826EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7995629D-29C3-4C58-86E3-AD1CFD826EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7995629D-29C3-4C58-86E3-AD1CFD826EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7995629D-29C3-4C58-86E3-AD1CFD826EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F77D07-A071-4DE7-B770-5739817A16C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F77D07-A071-4DE7-B770-5739817A16C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F77D07-A071-4DE7-B770-5739817A16C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F77D07-A071-4DE7-B770-5739817A16C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95BE703C-BFD1-499B-A686-A5C607A82E8A}
+	EndGlobalSection
+EndGlobal
