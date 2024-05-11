@@ -3,9 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO", "Tello.IO\Tello.IO.csproj", "{7995629D-29C3-4C58-86E3-AD1CFD826EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tello.IO", "Tello.IO\Tello.IO.csproj", "{7995629D-29C3-4C58-86E3-AD1CFD826EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tello.IO.Tests", "Tello.IO.Tests\Tello.IO.Tests.csproj", "{99F77D07-A071-4DE7-B770-5739817A16C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tello.IO.Tests", "Tello.IO.Tests\Tello.IO.Tests.csproj", "{99F77D07-A071-4DE7-B770-5739817A16C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF9336E5-AD2B-4E31-B0B1-EB9BD6DA707A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+		Tello_SDK_3.0_User_Guide_en.pdf = Tello_SDK_3.0_User_Guide_en.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{42D062B3-FC82-44ED-8BB8-5CF98ADFA538}"
+	ProjectSection(SolutionItems) = preProject
+		images\drone.png = images\drone.png
+		images\drone.svg = images\drone.svg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +39,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42D062B3-FC82-44ED-8BB8-5CF98ADFA538} = {BF9336E5-AD2B-4E31-B0B1-EB9BD6DA707A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95BE703C-BFD1-499B-A686-A5C607A82E8A}

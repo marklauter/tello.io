@@ -1,3 +1,5 @@
+![tello.io logo](images/drone.png)
+
 # tello.io
 Flight Controller for Ryze/DJI Tello Drone in C# / Dotnet 8. 
 Based on Tello 3.0 Protocol.
