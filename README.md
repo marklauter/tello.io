@@ -1,4 +1,4 @@
-![tello.io logo](images/drone.png)
+![tello.io logo](https://raw.githubusercontent.com/marklauter/tello.io/main/images/drone.png)
 
 # tello.io
 Flight Controller for Ryze/DJI Tello Drone in C# / Dotnet 8. 
