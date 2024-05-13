@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Tello.IO.Simulator.Tests;
+namespace Tello.IO.Tests;
 
 [ExcludeFromCodeCoverage]
 internal sealed class Startup
@@ -18,7 +18,6 @@ internal sealed class Startup
         .Build();
 
     public void ConfigureServices(IServiceCollection services) => _ = services
-        .AddSimulatedMessageHandler(configuration)
+        .AddDefaultMessenger(configuration)
         .AddTelloClient();
 }
-
