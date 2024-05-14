@@ -18,6 +18,6 @@ internal sealed class Startup
         .Build();
 
     public void ConfigureServices(IServiceCollection services) => _ = services
-        .AddDefaultMessenger(configuration)
+        .AddDefaultClientHandler(configuration)
         .AddTelloClient();
 }

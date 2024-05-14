@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tello.IO.Messaging;
 
-internal sealed class TelloClient(IMessageHandler messageHandler)
+internal sealed class TelloClient(ITelloClientHandler messageHandler)
     : ITelloClient
 {
     private sealed class Request
@@ -33,7 +33,7 @@ internal sealed class TelloClient(IMessageHandler messageHandler)
         private void TrySetCanceled() => taskCompletionSource.TrySetCanceled();
     }
 
-    private readonly IMessageHandler messageHandler = messageHandler ?? throw new ArgumentNullException(nameof(messageHandler));
+    private readonly ITelloClientHandler messageHandler = messageHandler ?? throw new ArgumentNullException(nameof(messageHandler));
     private readonly ConcurrentQueue<Request> requests = new();
     private bool processingQueue;
 

@@ -15,11 +15,11 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection AddDefaultMessenger(
+    public static IServiceCollection AddDefaultClientHandler(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.TryAddSingleton<IMessageHandler, UdpMessageHandler>();
+        services.TryAddSingleton<ITelloClientHandler, UdpTelloClientHandler>();
         services.TryAddSingleton(configuration.GetSection(nameof(MessageHandlerOptions)).Get<MessageHandlerOptions>()
             ?? throw new KeyNotFoundException(nameof(MessageHandlerOptions)));
 

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Tello.IO.Messaging;
 
-internal sealed class UdpMessageHandler(MessageHandlerOptions options)
-    : IMessageHandler
+internal sealed class UdpTelloClientHandler(MessageHandlerOptions options)
+    : ITelloClientHandler
     , IDisposable
 {
     private readonly UdpClient udpClient = new();

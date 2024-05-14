@@ -5,7 +5,7 @@ using Tello.IO.Messaging;
 namespace Tello.IO.Simulator.Tests;
 
 [ExcludeFromCodeCoverage]
-public class SimulatedMessageHandlerTests(IMessageHandler messageHandler)
+public class SimulatedMessageHandlerTests(ITelloClientHandler messageHandler)
 {
     [Fact]
     public void InjectionSucceeds() => Assert.NotNull(messageHandler);
@@ -18,13 +18,12 @@ public class SimulatedMessageHandlerTests(IMessageHandler messageHandler)
         Assert.Equal(message.Length, bytesSent);
     }
 
-    [Fact]
-    public async Task SendAsync_Sets_Available()
+    [Theory]
+    [InlineData("command", "ok")]
+    public async Task SendAsync_Sets_Available(string message, string expected)
     {
-        var message = "command";
-        var response = "ok";
         _ = await messageHandler.SendAsync(message, CancellationToken.None);
-        Assert.Equal(response.Length, messageHandler.Available);
+        Assert.Equal(expected.Length, messageHandler.Available);
     }
 
     [Theory]

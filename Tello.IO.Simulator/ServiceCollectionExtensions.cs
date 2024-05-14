@@ -7,11 +7,11 @@ namespace Tello.IO.Simulator;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddSimulatedMessageHandler(
+    public static IServiceCollection AddSimulatedClientHandler(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.TryAddSingleton<IMessageHandler, SimulatedMessageHandler>();
+        services.TryAddSingleton<ITelloClientHandler, SimulatedTelloClientHandler>();
         services.TryAddSingleton(configuration.GetSection(nameof(MessageHandlerOptions)).Get<MessageHandlerOptions>()
             ?? throw new KeyNotFoundException(nameof(MessageHandlerOptions)));
 

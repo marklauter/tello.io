@@ -18,7 +18,7 @@ internal sealed class Startup
         .Build();
 
     public void ConfigureServices(IServiceCollection services) => _ = services
-        .AddSimulatedMessageHandler(configuration)
+        .AddSimulatedClientHandler(configuration)
         .AddTelloClient();
 }
 

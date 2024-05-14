@@ -4,7 +4,7 @@ using Tello.IO.Messaging;
 namespace Tello.IO.Tests;
 
 [ExcludeFromCodeCoverage]
-public class UpdMessageHandlerTests(IMessageHandler messageHandler)
+public class UpdMessageHandlerTests(ITelloClientHandler messageHandler)
 {
     [Fact]
     public void InjectionSucceeds() => Assert.NotNull(messageHandler);

@@ -4,8 +4,8 @@ using Tello.IO.Messaging;
 
 namespace Tello.IO.Simulator;
 
-internal sealed class SimulatedMessageHandler(MessageHandlerOptions options)
-    : IMessageHandler
+internal sealed class SimulatedTelloClientHandler(MessageHandlerOptions options)
+    : ITelloClientHandler
 {
     private readonly Dictionary<string, string> requestResponse = new()
     {
