@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Tello.IO.Messaging;
 
 namespace Tello.IO.Tests;
 

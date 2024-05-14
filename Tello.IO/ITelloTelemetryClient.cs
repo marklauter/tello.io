@@ -1,4 +1,6 @@
-﻿namespace Tello.IO.Telemetry;
+﻿using Tello.IO.Telemetry;
+
+namespace Tello.IO;
 
 public interface ITelloTelemetryClient
 {

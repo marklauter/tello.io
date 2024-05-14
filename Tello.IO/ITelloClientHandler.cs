@@ -1,4 +1,6 @@
-﻿namespace Tello.IO.Messaging;
+﻿using Tello.IO.Messaging;
+
+namespace Tello.IO;
 
 /// <summary>
 /// IMessageHandler abstracts the core behavior of UdpClient. This allows us to add custom handling for messages, similar to the behavior of HttpClientHandler.

@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using Tello.IO.Messaging;
 
 namespace Tello.IO.Simulator.Tests;
 

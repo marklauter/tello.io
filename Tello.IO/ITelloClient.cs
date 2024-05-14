@@ -1,4 +1,6 @@
-﻿namespace Tello.IO.Messaging;
+﻿using Tello.IO.Messaging;
+
+namespace Tello.IO;
 
 public interface ITelloClient
 {
