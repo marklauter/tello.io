@@ -2,7 +2,7 @@
 
 # tello.io
 Flight Controller for Ryze/DJI Tello Drone in C# / Dotnet 8. 
-Based on Tello 3.0 Protocol.
+Based on [Tello 3.0 SDK](https://github.com/marklauter/tello.io/blob/main/Tello_SDK_3.0_User_Guide_en.pdf).
 
 This is a rewrite of my Tello API for the 2.0 protocol: [github.com/marklauter/TelloAPI-SDK-2.0](https://github.com/marklauter/TelloAPI-SDK-2.0). 
 
@@ -16,3 +16,7 @@ https://www.dji.com/robomaster-tt/downloads?site=brandsite&from=insite_search
 - original project was overly complicated because I was using it as a test for some C# techniques
 - I aim to simplify this version
 - will be interesting to see if I've learned anything in the last 6 years.
+
+### 13 MAY 2024
+- My Tello battery turned into a lithium balloon after 5 years, so my first pass of API will be based on a simulator.
+- Created ITelloClient and ITelloClientHandler. These work like HttpClient and HttpClientHandler. The simulator is a ITelloClientHandler implementation.
