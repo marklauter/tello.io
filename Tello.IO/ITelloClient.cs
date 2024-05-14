@@ -1,8 +1,8 @@
-﻿using Tello.IO.Messaging;
+﻿using Tello.IO.Client;
 
 namespace Tello.IO;
 
 public interface ITelloClient
 {
-    Task<string> SendAsync(TelloMessage message, CancellationToken cancellationToken);
+    Task<string> SendAsync(TelloCommand command, CancellationToken cancellationToken);
 }

@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-namespace Tello.IO.Messaging;
+namespace Tello.IO.Client;
 
-internal sealed class UdpTelloClientHandler(MessageHandlerOptions options)
+internal sealed class UdpTelloClientHandler(TelloClientHandlerOptions options)
     : ITelloClientHandler
     , IDisposable
 {
@@ -18,10 +18,10 @@ internal sealed class UdpTelloClientHandler(MessageHandlerOptions options)
         return new ReceiveResult(result.Buffer, result.RemoteEndPoint);
     }
 
-    public ValueTask<int> SendAsync(TelloMessage message, CancellationToken cancellationToken)
+    public ValueTask<int> SendAsync(TelloCommand command, CancellationToken cancellationToken)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(message);
-        return udpClient.SendAsync(message.AsReadOnlyMemory(), remoteEndPoint, cancellationToken);
+        ArgumentException.ThrowIfNullOrWhiteSpace(command);
+        return udpClient.SendAsync(command.AsReadOnlyMemory(), remoteEndPoint, cancellationToken);
     }
 
     public void Dispose() => udpClient.Dispose();

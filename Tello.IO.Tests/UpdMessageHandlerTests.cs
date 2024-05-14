@@ -3,16 +3,16 @@
 namespace Tello.IO.Tests;
 
 [ExcludeFromCodeCoverage]
-public class UpdMessageHandlerTests(ITelloClientHandler messageHandler)
+public class UpdMessageHandlerTests(ITelloClientHandler handler)
 {
     [Fact]
-    public void InjectionSucceeds() => Assert.NotNull(messageHandler);
+    public void InjectionSucceeds() => Assert.NotNull(handler);
 
     [Fact]
     public async Task SendAsync_Sends_All_Bytes()
     {
         var message = "command";
-        var bytesSent = await messageHandler.SendAsync(message, CancellationToken.None);
+        var bytesSent = await handler.SendAsync(message, CancellationToken.None);
         Assert.Equal(message.Length, bytesSent);
     }
 

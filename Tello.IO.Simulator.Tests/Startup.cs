@@ -12,8 +12,8 @@ internal sealed class Startup
     public Startup() => configuration = new ConfigurationBuilder()
         .AddInMemoryCollection(new Dictionary<string, string>
         {
-            { "MessageHandlerOptions:IPAddress", "192.168.10.1" },
-            { "MessageHandlerOptions:Port", "8889" },
+            { "TelloClientHandlerOptions:IPAddress", "192.168.10.1" },
+            { "TelloClientHandlerOptions:Port", "8889" },
         }!)
         .Build();
 

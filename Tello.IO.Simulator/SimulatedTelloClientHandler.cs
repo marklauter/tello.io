@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Text;
-using Tello.IO.Messaging;
+using Tello.IO.Client;
 
 namespace Tello.IO.Simulator;
 
-internal sealed class SimulatedTelloClientHandler(MessageHandlerOptions options)
+internal sealed class SimulatedTelloClientHandler(TelloClientHandlerOptions options)
     : ITelloClientHandler
 {
     private sealed class Drone
@@ -86,16 +86,16 @@ internal sealed class SimulatedTelloClientHandler(MessageHandlerOptions options)
         return ValueTask.FromResult(new ReceiveResult(buffer, remoteEndPoint));
     }
 
-    public ValueTask<int> SendAsync(TelloMessage message, CancellationToken cancellationToken)
+    public ValueTask<int> SendAsync(TelloCommand command, CancellationToken cancellationToken)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(message);
+        ArgumentException.ThrowIfNullOrWhiteSpace(command);
 
         this.response = String.Empty;
-        if (requestResponse.TryGetValue(message.ToKey(), out var response))
+        if (requestResponse.TryGetValue(command.ToKey(), out var response))
         {
             this.response = response;
         }
 
-        return new ValueTask<int>(Task.FromResult(message.Length));
+        return new ValueTask<int>(Task.FromResult(command.Length));
     }
 }

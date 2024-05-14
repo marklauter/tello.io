@@ -2,29 +2,29 @@
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Tello.IO.Messaging;
+namespace Tello.IO.Client;
 
-internal sealed class TelloClient(ITelloClientHandler messageHandler)
+internal sealed class TelloClient(ITelloClientHandler handler)
     : ITelloClient
 {
     private sealed class Request
     {
         private readonly TaskCompletionSource<string> taskCompletionSource = new();
 
-        public Request(TelloMessage message, CancellationToken cancellationToken)
+        public Request(TelloCommand command, CancellationToken cancellationToken)
         {
             _ = cancellationToken.Register(TrySetCanceled);
             CancellationToken = cancellationToken;
-            Message = message;
+            Command = command;
         }
 
         public CancellationToken CancellationToken { get; }
         public Task<string> Task => taskCompletionSource.Task;
 
-        public TelloMessage Message { get; }
+        public TelloCommand Command { get; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TrySetResult(string message) => taskCompletionSource.TrySetResult(message);
+        public bool TrySetResult(string response) => taskCompletionSource.TrySetResult(response);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void TrySetException(Exception ex) => taskCompletionSource.TrySetException(ex);
@@ -33,13 +33,13 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
         private void TrySetCanceled() => taskCompletionSource.TrySetCanceled();
     }
 
-    private readonly ITelloClientHandler messageHandler = messageHandler ?? throw new ArgumentNullException(nameof(messageHandler));
+    private readonly ITelloClientHandler handler = handler ?? throw new ArgumentNullException(nameof(handler));
     private readonly ConcurrentQueue<Request> requests = new();
     private bool processingQueue;
 
-    public async Task<string> SendAsync(TelloMessage message, CancellationToken cancellationToken)
+    public async Task<string> SendAsync(TelloCommand command, CancellationToken cancellationToken)
     {
-        var request = new Request(message, cancellationToken);
+        var request = new Request(command, cancellationToken);
         requests.Enqueue(request);
 
         ProcessRequestQueue();
@@ -72,10 +72,10 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
     {
         try
         {
-            var bytesSent = await messageHandler.SendAsync(request.Message, request.CancellationToken);
-            if (request.Message.Length != bytesSent)
+            var bytesSent = await handler.SendAsync(request.Command, request.CancellationToken);
+            if (request.Command.Length != bytesSent)
             {
-                throw new InvalidOperationException($"Failed to send message. bytes sent: {bytesSent}, expected: {request.Message.Length}");
+                throw new InvalidOperationException($"Failed to send command. bytes sent: {bytesSent}, expected: {request.Command.Length}");
             }
 
             if (IgnoreResponse(request))
@@ -83,12 +83,12 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
                 return;
             }
 
-            while (messageHandler.Available == 0)
+            while (handler.Available == 0)
             {
                 await Task.Yield();
             }
 
-            var result = await messageHandler.ReceiveAsync(request.CancellationToken);
+            var result = await handler.ReceiveAsync(request.CancellationToken);
             var response = Encoding.ASCII.GetString(result.Buffer);
 
             if (String.IsNullOrEmpty(response))
@@ -105,5 +105,5 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
     }
 
     // todo: better way to do this is regex matching
-    private static bool IgnoreResponse(Request request) => request.Message.ToKey() is "reboot" or "rc {0} {1} {2} {3}";
+    private static bool IgnoreResponse(Request request) => request.Command.ToKey() is "reboot" or "rc {0} {1} {2} {3}";
 }

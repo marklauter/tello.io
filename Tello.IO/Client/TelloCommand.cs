@@ -1,10 +1,10 @@
 ﻿using System.Text;
 
-namespace Tello.IO.Messaging;
+namespace Tello.IO.Client;
 
-public readonly struct TelloMessage
+public readonly struct TelloCommand
 {
-    public TelloMessage(string value)
+    public TelloCommand(string value)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(value);
         this.value = value.ToLowerInvariant();
@@ -30,6 +30,6 @@ public readonly struct TelloMessage
         return builder.ToString();
     }
 
-    public static implicit operator string(TelloMessage command) => command.value;
-    public static implicit operator TelloMessage(string message) => new(message);
+    public static implicit operator string(TelloCommand command) => command.value;
+    public static implicit operator TelloCommand(string value) => new(value);
 }
