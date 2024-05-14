@@ -16,3 +16,7 @@ https://www.dji.com/robomaster-tt/downloads?site=brandsite&from=insite_search
 - original project was overly complicated because I was using it as a test for some C# techniques
 - I aim to simplify this version
 - will be interesting to see if I've learned anything in the last 6 years.
+
+### 13 MAY 2024
+- My Tello battery turned into a lithium balloon after 5 years, so my first pass of API will be based on a simulator.
+- Created ITelloClient and ITelloClientHandler. These work like HttpClient and HttpClientHandler. The simulator is a ITelloClientHandler implementation.
