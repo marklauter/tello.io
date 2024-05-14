@@ -11,17 +11,17 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
     {
         private readonly TaskCompletionSource<string> taskCompletionSource = new();
 
-        public Request(string message, CancellationToken cancellationToken)
+        public Request(TelloMessage message, CancellationToken cancellationToken)
         {
             _ = cancellationToken.Register(TrySetCanceled);
             CancellationToken = cancellationToken;
-            Message = message ?? String.Empty;
+            Message = message;
         }
 
         public CancellationToken CancellationToken { get; }
         public Task<string> Task => taskCompletionSource.Task;
 
-        public string Message { get; }
+        public TelloMessage Message { get; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TrySetResult(string message) => taskCompletionSource.TrySetResult(message);
@@ -37,7 +37,7 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
     private readonly ConcurrentQueue<Request> requests = new();
     private bool processingQueue;
 
-    public async Task<string> SendAsync(string message, CancellationToken cancellationToken)
+    public async Task<string> SendAsync(TelloMessage message, CancellationToken cancellationToken)
     {
         var request = new Request(message, cancellationToken);
         requests.Enqueue(request);
@@ -59,7 +59,7 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
         {
             while (requests.TryDequeue(out var request))
             {
-                await SendMessageAsync(request);
+                await SendRequestAsync(request);
             }
         }
         finally
@@ -68,7 +68,7 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
         }
     });
 
-    private async Task SendMessageAsync(Request request)
+    private async Task SendRequestAsync(Request request)
     {
         try
         {
@@ -76,6 +76,11 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
             if (request.Message.Length != bytesSent)
             {
                 throw new InvalidOperationException($"Failed to send message. bytes sent: {bytesSent}, expected: {request.Message.Length}");
+            }
+
+            if (IgnoreResponse(request))
+            {
+                return;
             }
 
             while (messageHandler.Available == 0)
@@ -98,4 +103,7 @@ internal sealed class TelloClient(ITelloClientHandler messageHandler)
             request.TrySetException(ex);
         }
     }
+
+    // todo: better way to do this is regex matching
+    private static bool IgnoreResponse(Request request) => request.Message.ToKey() is "reboot" or "rc {0} {1} {2} {3}";
 }

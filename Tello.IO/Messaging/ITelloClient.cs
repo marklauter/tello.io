@@ -2,5 +2,5 @@
 
 public interface ITelloClient
 {
-    Task<string> SendAsync(string message, CancellationToken cancellationToken);
+    Task<string> SendAsync(TelloMessage message, CancellationToken cancellationToken);
 }

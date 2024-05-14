@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 namespace Tello.IO.Messaging;
 
@@ -19,7 +18,11 @@ internal sealed class UdpTelloClientHandler(MessageHandlerOptions options)
         return new ReceiveResult(result.Buffer, result.RemoteEndPoint);
     }
 
-    public ValueTask<int> SendAsync(string message, CancellationToken cancellationToken) => udpClient.SendAsync(new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes(message)), remoteEndPoint, cancellationToken);
+    public ValueTask<int> SendAsync(TelloMessage message, CancellationToken cancellationToken)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(message);
+        return udpClient.SendAsync(message.AsReadOnlyMemory(), remoteEndPoint, cancellationToken);
+    }
 
     public void Dispose() => udpClient.Dispose();
 }

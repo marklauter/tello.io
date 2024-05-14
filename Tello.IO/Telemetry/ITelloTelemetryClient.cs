@@ -2,5 +2,5 @@
 
 public interface ITelloTelemetryClient
 {
-    void Listen(CancellationToken cancellationToken, Action<TelloTelemetry> telemetryReceived);
+    Task ListenAsync(Action<TelloTelemetry> telemetryReceived, CancellationToken cancellationToken);
 }

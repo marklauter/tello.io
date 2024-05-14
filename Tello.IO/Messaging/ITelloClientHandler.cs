@@ -7,5 +7,5 @@ public interface ITelloClientHandler
 {
     int Available { get; }
     ValueTask<ReceiveResult> ReceiveAsync(CancellationToken cancellationToken);
-    ValueTask<int> SendAsync(string message, CancellationToken cancellationToken);
+    ValueTask<int> SendAsync(TelloMessage message, CancellationToken cancellationToken);
 }
