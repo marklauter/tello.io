@@ -2,7 +2,7 @@
 
 # tello.io
 Flight Controller for Ryze/DJI Tello Drone in C# / Dotnet 8. 
-Based on Tello 3.0 Protocol.
+Based on [Tello 3.0 SDK](https://github.com/marklauter/tello.io/blob/main/Tello_SDK_3.0_User_Guide_en.pdf).
 
 This is a rewrite of my Tello API for the 2.0 protocol: [github.com/marklauter/TelloAPI-SDK-2.0](https://github.com/marklauter/TelloAPI-SDK-2.0). 
 
