@@ -10,7 +10,9 @@ Based on [Tello 3.0 SDK](https://github.com/marklauter/tello.io/blob/main/Tello_
 This is a rewrite of my Tello API for the 2.0 protocol: [github.com/marklauter/TelloAPI-SDK-2.0](https://github.com/marklauter/TelloAPI-SDK-2.0). 
 
 ## References
-https://www.dji.com/robomaster-tt/downloads?site=brandsite&from=insite_search
+- https://www.dji.com/robomaster-tt/downloads?site=brandsite&from=insite_search
+- [Tello_SDK_3.0_User_Guide_en.pdf](https://github.com/marklauter/tello.io/blob/main/Tello_SDK_3.0_User_Guide_en.pdf)
+
 
 ## Developer Notes
 ### 11 MAY 2024
