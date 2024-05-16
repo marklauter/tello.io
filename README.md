@@ -23,3 +23,7 @@ https://www.dji.com/robomaster-tt/downloads?site=brandsite&from=insite_search
 ### 13 MAY 2024
 - My Tello battery turned into a lithium balloon after 5 years, so my first pass of API will be based on a simulator.
 - Created ITelloClient and ITelloClientHandler. These work like HttpClient and HttpClientHandler. The simulator is a ITelloClientHandler implementation.
+
+### 15 MAY 2024
+- Created Tello.IO.Parser and test projects.
+- Setup the Lexer for the Tello SDK 3.0 commands.
