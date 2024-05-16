@@ -54,7 +54,7 @@ internal sealed class SimulatedTelloClientHandler(TelloClientHandlerOptions opti
         { "rc {0} {1} {2} {3}", String.Empty },
         { "wifi {0} {1}", "OK, drone will reboot in 3s" },
         { "ap {0} {1}","OK, drone will reboot in 3s" },
-        { "wifisetchannel {channel}", "ok" },
+        { "wifisetchannel {0}", "ok" },
         { "port {0} {1}", "ok" },
         { "setfps {0}", "ok" },
         { "setbitrate {0}", "ok" },
