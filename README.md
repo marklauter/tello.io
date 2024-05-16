@@ -1,3 +1,6 @@
+## Build Status
+[![.NET Tests](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml/badge.svg)](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml)
+##
 ![tello.io logo](https://raw.githubusercontent.com/marklauter/tello.io/main/images/drone.png)
 
 # tello.io
