@@ -1,5 +1,6 @@
 ## Build Status
 [![.NET Tests](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml/badge.svg)](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml)
+[![Nuget](https://img.shields.io/badge/.NET-8.0-blue)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0/)
 ##
 ![tello.io logo](https://raw.githubusercontent.com/marklauter/tello.io/main/images/drone.png)
 
