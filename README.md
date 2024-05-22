@@ -1,10 +1,11 @@
 ## Build Status
 [![.NET Tests](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml/badge.svg)](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml)
+[![Nuget](https://img.shields.io/badge/.NET-8.0-blue)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0/)
 ##
 ![tello.io logo](https://raw.githubusercontent.com/marklauter/tello.io/main/images/drone.png)
 
 # tello.io
-Flight Controller for Ryze/DJI Tello Drone in C# / Dotnet 8. 
+Flight Controller for DJI/Ryze Tello Drone for dotnet. 
 Based on [Tello 3.0 SDK](https://github.com/marklauter/tello.io/blob/main/Tello_SDK_3.0_User_Guide_en.pdf).
 
 This is a rewrite of my Tello API for the 2.0 protocol: [github.com/marklauter/TelloAPI-SDK-2.0](https://github.com/marklauter/TelloAPI-SDK-2.0). 
