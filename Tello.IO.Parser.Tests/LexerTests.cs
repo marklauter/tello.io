@@ -57,7 +57,7 @@ public class LexerTests(Lexer lexer)
         var result = lexer.NextMatch(input);
         Assert.True(result.Symbol.IsMatch);
         Assert.True(result.Source.IsEndOfSource);
-        Assert.Equal((int)expected, result.Symbol.TokenId);
+        Assert.Equal((uint)expected, result.Symbol.TokenId);
     }
 
     [Theory]
@@ -94,7 +94,7 @@ public class LexerTests(Lexer lexer)
         while (result.Symbol.IsMatch)
         {
             Assert.True(result.Symbol.IsMatch);
-            Assert.Equal((int)expectedTokens[i++], result.Symbol.TokenId);
+            Assert.Equal((uint)expectedTokens[i++], result.Symbol.TokenId);
             result = lexer.NextMatch(result);
         }
     }
