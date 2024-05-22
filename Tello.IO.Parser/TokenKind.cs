@@ -1,7 +1,8 @@
 ﻿namespace Tello.IO.Parser;
 
-public enum TokenKind
+public enum TokenId : uint
 {
+    WhiteSpace,
     Identifier,
     IntegerLiteral,
     DirectionLeft,

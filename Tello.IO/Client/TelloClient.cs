@@ -37,17 +37,17 @@ internal sealed class TelloClient(ITelloClientHandler handler)
     private readonly ConcurrentQueue<Request> requests = new();
     private bool processingQueue;
 
-    public Task<string> SendAsync(TelloCommand command, CancellationToken cancellationToken)
+    public Task<string> SendAsync(TelloCommand command, CancellationToken cancellationToken) =>
+        InvokeRequest(new Request(command, cancellationToken)).Task;
+
+    private Request InvokeRequest(Request request)
     {
-        var request = new Request(command, cancellationToken);
         requests.Enqueue(request);
-
-        ProcessRequestQueue();
-
-        return request.Task;
+        _ = Task.Factory.StartNew(InvokeRequestsAsync);
+        return request;
     }
 
-    private void ProcessRequestQueue() => Task.Run(async () =>
+    private async Task InvokeRequestsAsync()
     {
         if (processingQueue)
         {
@@ -59,14 +59,17 @@ internal sealed class TelloClient(ITelloClientHandler handler)
         {
             while (requests.TryDequeue(out var request))
             {
-                await SendRequestAsync(request);
+                if (!request.CancellationToken.IsCancellationRequested)
+                {
+                    await SendRequestAsync(request);
+                }
             }
         }
         finally
         {
             processingQueue = false;
         }
-    });
+    }
 
     private async Task SendRequestAsync(Request request)
     {
