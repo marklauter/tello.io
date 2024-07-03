@@ -1,3 +1,7 @@
+# update
+If anyone *REALLY* wants me to continue this project, comment in the [Issues](https://github.com/marklauter/tello.io/issues) section. 
+The DJI Tello has been discontinued and I'm busy with less boring stuff, so unless this project gets some interest in the Issues section, I'm abandoning it.
+
 ## Build Status
 [![.NET Tests](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml/badge.svg)](https://github.com/marklauter/tello.io/actions/workflows/dotnet.tests.yml)
 [![Nuget](https://img.shields.io/badge/.NET-8.0-blue)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0/)
