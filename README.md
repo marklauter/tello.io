@@ -1,4 +1,4 @@
-# update
+# update - June 2024
 If anyone *REALLY* wants me to continue this project, comment in the [Issues](https://github.com/marklauter/tello.io/issues) section. 
 The DJI Tello has been discontinued and I'm busy with less boring stuff, so unless this project gets some interest in the Issues section, I'm abandoning it.
 
